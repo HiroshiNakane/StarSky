@@ -16,8 +16,23 @@ public class Title : MonoBehaviour
         
     }
 
-    public void Onclick()
+    public void OnclickStart()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void OnclickTutorial()
+    {
+
+    }
+
+    public void OnclickRanking()
+    {
+
+    }
+
+    public void OnclickCredit()
+    {
+
     }
 }

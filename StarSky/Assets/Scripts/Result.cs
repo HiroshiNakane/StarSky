@@ -12,9 +12,16 @@ public class Result : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SceneManager.LoadScene("Title");
-        }
+
+    }
+
+    public void OnclickReturnTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
+    public void OnclickRetry()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
