@@ -14,7 +14,6 @@ public class PlayerMove : MonoBehaviour
     int time;
     Text countTimerText;
 
-
     void Start()
     {
 
