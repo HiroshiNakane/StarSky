@@ -5,22 +5,22 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public GameObject player;
+    public Transform player;
 
     private Vector3 offset;
 
     void Start()
     {
-        offset = transform.position - player.transform.position;
+        offset = GetComponent<Transform>().position - player.position;
     }
 
     void Update()
     {
-        
+        GetComponent<Transform>().position = player.position + offset; 
     }
 
-    void LateUpdate()
+    /*void LateUpdate()
     {
         transform.position = player.transform.position + offset;    
-    }
+    }*/
 }
