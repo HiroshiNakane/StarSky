@@ -36,8 +36,6 @@ public class GameController : MonoBehaviour
 
         //_blackHole = Instantiate((_blackHolePrefab), Camera.main.ScreenToWorldPoint(mousePos), _blackHolePrefab.transform.rotation);
 
-        //_blackHolePrefab.transform.position = screenToWorldPointPosition;
-
         //instantiateEffect = Instantiate(blackHoleEffect, _blackHole.transform.position, Quaternion.identity) as GameObject;
 
         if (!_isBlackHoleVisible)
@@ -46,20 +44,20 @@ public class GameController : MonoBehaviour
             {
                 _isBlackHoleVisible = true;
 
-                // z軸の位置を修正
-                //mousePos.z = 10.0f;
-
                 // ブラックホールを生成
                 _blackHole = Instantiate((_blackHolePrefab), Camera.main.ScreenToWorldPoint(mousePos),_blackHolePrefab.transform.rotation);
 
-                //_blackHolePrefab.transform.position = screenToWorldPointPosition;
-
                 instantiateEffect = Instantiate(blackHoleEffect, _blackHole.transform.position, Quaternion.identity) as GameObject;
+
+                // 生成してから２秒後に消す
+                Destroy(_blackHole, 2.0f);
+
+                Destroy(instantiateEffect, 2.0f);
             }
         }
         else
         {
-            var pos = mousePos - _centerPos;
+            //var pos = mousePos - _centerPos;
 
             //var direction = pos - _star.GetComponent<RectTransform>().localPosition;
 
@@ -78,11 +76,6 @@ public class GameController : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                // ブラックホールを削除
-                Destroy(_blackHole);
-
-                Destroy(instantiateEffect);
-
                 _isBlackHoleVisible = false;
 
             }
@@ -90,7 +83,6 @@ public class GameController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            //var pos = mousePos - _centerPos;
             Debug.Log(mousePos.x);
         }
 
