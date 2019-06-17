@@ -52,21 +52,14 @@ public class GameController : MonoBehaviour
                 // ブラックホールを生成
                 _blackHole = Instantiate((_blackHolePrefab), Camera.main.ScreenToWorldPoint(mousePos),_blackHolePrefab.transform.rotation);
 
-                _blackHolePrefab.transform.position = screenToWorldPointPosition;
+                //_blackHolePrefab.transform.position = screenToWorldPointPosition;
 
                 instantiateEffect = Instantiate(blackHoleEffect, _blackHole.transform.position, Quaternion.identity) as GameObject;
-
-                // ブラックホールの座標を更新
-                _blackHole.GetComponent<RectTransform>().localPosition = mousePos - _centerPos;
-
             }
         }
         else
         {
             var pos = mousePos - _centerPos;
-
-            // ブラックホールの座標を更新
-            _blackHole.GetComponent<RectTransform>().localPosition = pos;
 
             //var direction = pos - _star.GetComponent<RectTransform>().localPosition;
 
