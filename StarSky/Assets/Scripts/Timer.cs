@@ -16,10 +16,10 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime;// 毎フレームの時間を加算
         int minute = (int)time / 60;
         int second = (int)time % 60;
-        int millisecond = (int)(time * 100 % 100);
+        int millisecond = (int)(time * 1000 % 1000);
         string minText, secText, millisecText;
         if (minute < 10)
         {
@@ -39,13 +39,13 @@ public class Timer : MonoBehaviour
         }
         if (millisecond < 10)
         {
+            millisecText = "00" + millisecond.ToString();
+        }else if(millisecond < 100)
+        {
             millisecText = "0" + millisecond.ToString();
-        }/*else if(millisecond < 100)
+        }/*else if(millisecond < 1000)
         {
             millisecText = "" + millisecond.ToString();
-        }else if(millisecond < 1000)
-        {
-            millisecText = millisecond.ToString();
         }*/
         else
         {
