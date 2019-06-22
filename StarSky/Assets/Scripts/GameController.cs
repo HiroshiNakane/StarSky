@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,18 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private GameObject blackHoleEffect;
+
+    [SerializeField]
+    private GameObject parent;
+
+    [SerializeField]
+    private GameObject meteoPrefab;
+
+    [SerializeField]
+    private Transform earth;
+
+    [SerializeField]
+    private Text timer;
 
     private GameObject instantiateEffect;
 
@@ -21,71 +34,50 @@ public class GameController : MonoBehaviour
 
     private bool _isBlackHoleVisible = false;
 
+    // タイマー
+    private float timeData = 0.0f;
+    private bool isStart = false;
+
+    private List<FallingMeteorites> meteos = new List<FallingMeteorites>();
+
     void Start()
     {
-        
+        timeData = 30.0f;
+        timer.text = "0";
     }
 
     void Update()
     {
-        var mousePos = Input.mousePosition;
-
-        mousePos.z = 10.0f;
-
-        screenToWorldPointPosition = Camera.main.WorldToScreenPoint(_blackHolePrefab.transform.position);
-
-        //_blackHole = Instantiate((_blackHolePrefab), Camera.main.ScreenToWorldPoint(mousePos), _blackHolePrefab.transform.rotation);
-
-        //instantiateEffect = Instantiate(blackHoleEffect, _blackHole.transform.position, Quaternion.identity) as GameObject;
-
-        if (!_isBlackHoleVisible)
+        if (timeData > 0 && isStart)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                _isBlackHoleVisible = true;
+            timeData -= Time.deltaTime;
+            if (timeData < 0)
+                timeData = 0;
 
-                // ブラックホールを生成
-                _blackHole = Instantiate((_blackHolePrefab), Camera.main.ScreenToWorldPoint(mousePos),_blackHolePrefab.transform.rotation);
+            timer.text = ((int)timeData).ToString();
 
-                instantiateEffect = Instantiate(blackHoleEffect, _blackHole.transform.position, Quaternion.identity) as GameObject;
-
-                // 生成してから２秒後に消す
-                Destroy(_blackHole, 2.0f);
-
-                Destroy(instantiateEffect, 2.0f);
-            }
         }
-        else
+        if(timeData > 0 && isStart)
         {
-            //var pos = mousePos - _centerPos;
-
-            //var direction = pos - _star.GetComponent<RectTransform>().localPosition;
-
-            //direction.Normalize();
-
-            //var magnitude = direction.magnitude;
-
-            //var pow = 0.07f / magnitude;
-
-            //if(pos.x < -400)
-            //{
-            //    pow = -0.13f / magnitude;
-            //}
-
-            //_star.AddForce(direction, pow);
-
-            if (Input.GetMouseButtonUp(0))
+            var rnd = Random.Range(0, (int)timeData * 3);
+            if(rnd == 0)
             {
-                _isBlackHoleVisible = false;
-
+                AddMeteo();
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !isStart)
         {
-            Debug.Log(mousePos.x);
+            isStart = true;
         }
-
     }
 
+    void AddMeteo()
+    {
+        var meteo = Instantiate(meteoPrefab, parent.transform);
+        meteo.transform.localPosition = new Vector2(Random.Range(-380.0f, 380.0f), 740.0f);
+        var meteoView = meteo.GetComponent<FallingMeteorites>();
+        meteoView.Init(earth.localPosition);
+        meteos.Add(meteoView);
+    }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class FallingMeteorites : MonoBehaviour
 {
 
-    Rigidbody rb;
+    Rigidbody2D meteoRigid;
 
-    public float fallSpeed;
+    //public float fallSpeed;
 
-    void Start()
+    /*void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        meteoRigid = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -19,5 +19,12 @@ public class FallingMeteorites : MonoBehaviour
 
         rb.velocity = new Vector3(rb.velocity.x, fallSpeed, rb.velocity.z);
 
+    }*/
+
+    public void Init(Vector3 earthPos)
+    {
+        meteoRigid = GetComponent<Rigidbody2D>();
+        var moveVec = Vector3.Normalize(earthPos - transform.localPosition);
+        meteoRigid.AddForce(moveVec * 100, ForceMode2D.Impulse);
     }
 }

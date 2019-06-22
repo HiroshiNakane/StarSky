@@ -18,7 +18,7 @@ public class GenerateMeteorites : MonoBehaviour
         generateTime -= Time.deltaTime;
         if (generateTime <= 0.0f)
         {
-            generateTime = 2.0f; // ２秒毎に降らせる
+            generateTime = 1.5f; // 1.5秒毎に降らせる
 
             // 隕石出現座標
             float x = Random.Range(-2.8f, 2.8f);
