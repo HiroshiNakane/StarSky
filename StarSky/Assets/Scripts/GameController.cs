@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour
     private GameObject parent;
 
     [SerializeField]
+    private GameObject blackholeParent;
+
+    [SerializeField]
     private GameObject meteoPrefab;
 
     [SerializeField]
@@ -24,15 +27,15 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text timer;
 
+    public int blackholeCount;
+
     private GameObject instantiateEffect;
 
     private GameObject _blackHole;
     
-    private Vector3 _centerPos = new Vector3(800 / 2, 1280 / 2, 0);
+    private Vector3 _centerPos = new Vector3(800 / 2, 1200 / 2, 0);
 
-    Vector3 screenToWorldPointPosition;
-
-    private bool _isBlackHoleVisible = false;
+    //Vector2 screenToWorldPointPosition;
 
     // タイマー
     private float timeData = 0.0f;
@@ -44,6 +47,7 @@ public class GameController : MonoBehaviour
     {
         timeData = 30.0f;
         timer.text = "0";
+        blackholeCount = 3;
     }
 
     void Update()
@@ -56,19 +60,39 @@ public class GameController : MonoBehaviour
 
             timer.text = ((int)timeData).ToString();
 
+            //var mousePos = Input.mousePosition;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                AddBlackHole();
+                //mousePos.z = 10.0f;
+
+                /*if (blackholeCount < 1)
+                    return;
+                {
+                    
+                    // ブラックホールを生成
+                    _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
+                    _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
+
+                    blackholeCount -= 1;
+                }*/
+            }
+
         }
-        if(timeData > 0 && isStart)
+
+        if (Input.GetMouseButtonDown(0) && !isStart)
+        {
+            isStart = true;
+        }
+
+        if (timeData > 0 && isStart)
         {
             var rnd = Random.Range(0, (int)timeData * 3);
             if(rnd == 0)
             {
                 AddMeteo();
             }
-        }
-
-        if(Input.GetMouseButtonDown(0) && !isStart)
-        {
-            isStart = true;
         }
     }
 
@@ -80,4 +104,20 @@ public class GameController : MonoBehaviour
         meteoView.Init(earth.localPosition);
         meteos.Add(meteoView);
     }
+
+    void AddBlackHole()
+    {
+        var mousePos = Input.mousePosition;
+
+        if (blackholeCount < 1)
+        return;
+        {
+            // ブラックホールを生成
+            _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
+            _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
+
+            blackholeCount--;
+        }
+    }
+
 }

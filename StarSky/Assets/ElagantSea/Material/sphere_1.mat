@@ -36,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistortionTex:
-        m_Texture: {fileID: 2800000, guid: b11b9b835bc18364bba0e6552febd462, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6ae7ec1fd3ecb154d8ce1b6af0547355, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -44,12 +44,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5fb27c8353d25aa4ab705907dd9ade52, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Texture: {fileID: 2800000, guid: 4a3ddb148eb7fd34f8b6ce5acdd99bed, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: cbb14a957ee71374ea0c20fbded83dd5, type: 3}
+        m_Scale: {x: 0, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -69,7 +69,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DoubleSide: 0
     - _DstBlend: 0
-    - _Emmison: 1
+    - _Emmison: 2
     - _FresnelInvert: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5

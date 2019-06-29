@@ -229,7 +229,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838759232}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -283,81 +283,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838759232}
   m_CullTransparentMesh: 0
---- !u!1001 &923680475
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1001828918}
-    m_Modifications:
-    - target: {fileID: 3798794210295864419, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_Name
-      value: Meteo
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 387
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 733
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7f0f834dff91067458b85b43ef021cb3, type: 3}
---- !u!4 &923680476 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7152901250287324907, guid: 7f0f834dff91067458b85b43ef021cb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 923680475}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &999827413
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,9 +375,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1403375331}
-  - {fileID: 923680476}
+  m_Children: []
   m_Father: {fileID: 1757949963}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -468,7 +391,6 @@ GameObject:
   - component: {fileID: 1007056989}
   - component: {fileID: 1007056988}
   - component: {fileID: 1007056987}
-  - component: {fileID: 1007056991}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Earth
@@ -485,7 +407,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1007056986}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.48843977
   m_Height: 1
   m_Direction: 0
@@ -549,18 +471,6 @@ Transform:
   m_Father: {fileID: 1349845110}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1007056991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007056986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1079d314bcdcaca4e890d23560adc2eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1067326120
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +483,7 @@ GameObject:
   - component: {fileID: 1067326124}
   - component: {fileID: 1067326123}
   - component: {fileID: 1067326122}
+  - component: {fileID: 1067326125}
   m_Layer: 5
   m_Name: EarthHit
   m_TagString: Untagged
@@ -652,6 +563,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067326120}
   m_CullTransparentMesh: 0
+--- !u!114 &1067326125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067326120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1079d314bcdcaca4e890d23560adc2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1192718345
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1192718346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -764,36 +687,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1403375330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1403375331}
-  m_Layer: 0
-  m_Name: BrackHole
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1403375331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403375330}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1001828918}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712412829
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,15 +716,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e0ef646ec61b54b8b1d7715c92b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blackHolePrefab: {fileID: 8040625009330423511, guid: 01f2e444497086b49aa85b4f3a46b87f,
+  _blackHolePrefab: {fileID: 3068593502404733064, guid: 52f07ab16babd6a4cb7b20fae5555ddd,
     type: 3}
   blackHoleEffect: {fileID: 2616166234565171195, guid: 8db869bd00f7ba84ea93bbda828f3428,
     type: 3}
   parent: {fileID: 1001828916}
-  meteoPrefab: {fileID: 3798794210295864419, guid: 7f0f834dff91067458b85b43ef021cb3,
+  blackholeParent: {fileID: 1733299662}
+  meteoPrefab: {fileID: 6927306829523481113, guid: 25319dc1c51ff5d429fffb82707c030b,
     type: 3}
   earth: {fileID: 1007056990}
   timer: {fileID: 838759234}
+  blackholeCount: 0
 --- !u!4 &1712412831
 Transform:
   m_ObjectHideFlags: 0
@@ -840,11 +735,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712412829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1728623, y: -0.17060086, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1733299662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733299663}
+  m_Layer: 0
+  m_Name: BlackHoleArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1733299663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733299662}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1757949963}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757949959
 GameObject:
@@ -940,6 +865,7 @@ RectTransform:
   - {fileID: 838759233}
   - {fileID: 1192718346}
   - {fileID: 1001828918}
+  - {fileID: 1733299663}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -7,19 +7,16 @@ public class FallingMeteorites : MonoBehaviour
 
     Rigidbody2D meteoRigid;
 
-    //public float fallSpeed;
-
-    /*void Start()
+    void Start()
     {
-        meteoRigid = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
     {
 
-        rb.velocity = new Vector3(rb.velocity.x, fallSpeed, rb.velocity.z);
 
-    }*/
+    }
 
     public void Init(Vector3 earthPos)
     {

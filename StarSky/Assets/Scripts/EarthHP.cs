@@ -14,10 +14,10 @@ public class EarthHP : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        // 当たったオブジェクトにMeteoriteタグがついていたら
-        if (other.gameObject.CompareTag("Meteorite"))
+        // 当たったオブジェクトにMeteoタグがついていたら
+        if (other.gameObject.CompareTag("Meteo"))
         {
             // 隕石を削除
             Destroy(other.gameObject);
