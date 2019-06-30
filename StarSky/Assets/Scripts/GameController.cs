@@ -35,8 +35,6 @@ public class GameController : MonoBehaviour
     
     private Vector3 _centerPos = new Vector3(800 / 2, 1200 / 2, 0);
 
-    //Vector2 screenToWorldPointPosition;
-
     // タイマー
     private float timeData = 0.0f;
     private bool isStart = false;
@@ -60,23 +58,9 @@ public class GameController : MonoBehaviour
 
             timer.text = ((int)timeData).ToString();
 
-            //var mousePos = Input.mousePosition;
-
             if (Input.GetMouseButtonDown(0))
             {
                 AddBlackHole();
-                //mousePos.z = 10.0f;
-
-                /*if (blackholeCount < 1)
-                    return;
-                {
-                    
-                    // ブラックホールを生成
-                    _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
-                    _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
-
-                    blackholeCount -= 1;
-                }*/
             }
 
         }
@@ -115,8 +99,13 @@ public class GameController : MonoBehaviour
             // ブラックホールを生成
             _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
-
+            _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy);
             blackholeCount--;
+        }
+
+        void BlackHoleDestroy()
+        {
+            blackholeCount++;
         }
     }
 

@@ -7,18 +7,16 @@ public class BlackholeView : MonoBehaviour
 
     System.Action _callBack;
 
-    GameController Count;
-
     void Start()
     {
-        StartCoroutine(BlackholeMakeSmaller(gameObject));
 
-        Count = GetComponent<GameController>();
     }
 
-    void Update()
+    public void Init(System.Action callBack)
     {
-        
+        _callBack = callBack;
+
+        StartCoroutine(BlackholeMakeSmaller(gameObject));
     }
 
     IEnumerator BlackholeMakeSmaller(GameObject target)
@@ -48,17 +46,12 @@ public class BlackholeView : MonoBehaviour
         // スケールが0.01より小さくなったらオブジェクトを消す
         if (updateScale < 0.01f)
         {
+           if(_callBack != null)
+            {
+                _callBack();   
+            }
            Destroy(gameObject);
         }
-    }
-
-    public void Init(System.Action callBack)
-    {
-        _callBack = callBack;
-
-        Count.blackholeCount++;
-
-        StartCoroutine(BlackholeMakeSmaller(gameObject));
     }
 
 }
