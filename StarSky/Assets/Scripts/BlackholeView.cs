@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class BlackholeView : MonoBehaviour
 {
-    System.Action _callBack;
+    private System.Action _callback;
+    private System.Action<Vector3, FallingMeteorites> _callbackMeteo;
 
-    private System.Action<Vector3> _callback;
-    private void Init(System.Action<Vector3> callback)
+    public void Init(System.Action callback, System.Action<Vector3, FallingMeteorites> callbacMeteo)
     {
         _callback = callback;
+        _callbackMeteo = callbacMeteo;
+
+        StartCoroutine(BlackholeMakeSmaller(gameObject));
     }
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
         if(obj.gameObject.tag == "Meteo")
         {
-            if (_callback != null)
-                _callback(obj.transform.localPosition);
+            if (_callbackMeteo != null)
+                _callbackMeteo(transform.GetComponent<RectTransform>().localPosition, obj.GetComponent<FallingMeteorites>());
         }
     }
 
@@ -25,17 +28,11 @@ public class BlackholeView : MonoBehaviour
     {
         if(obj.gameObject.tag == "Meteo")
         {
-            if (_callback != null)
-                _callback(obj.transform.localPosition);
+            if (_callbackMeteo != null)
+                _callbackMeteo(transform.GetComponent<RectTransform>().localPosition, obj.GetComponent<FallingMeteorites>());
         }
     }
 
-    public void Init(System.Action callBack)
-    {
-        _callBack = callBack;
-
-        StartCoroutine(BlackholeMakeSmaller(gameObject));
-    }
 
     IEnumerator BlackholeMakeSmaller(GameObject target)
     {
@@ -64,9 +61,9 @@ public class BlackholeView : MonoBehaviour
         // スケールが0.01より小さくなったらオブジェクトを消す
         if (updateScale < 0.01f)
         {
-           if(_callBack != null)
+           if(_callback != null)
             {
-                _callBack();   
+                _callback();   
             }
            Destroy(gameObject);
         }

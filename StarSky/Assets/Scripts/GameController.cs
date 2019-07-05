@@ -28,11 +28,12 @@ public class GameController : MonoBehaviour
     private Text timer;
 
     public int blackholeCount;
+    private float totalPower = 100.0f;
 
     //private GameObject instantiateEffect;
 
     private GameObject _blackHole;
-    
+
     private Vector3 _centerPos = new Vector3(800 / 2, 1200 / 2, 0);
 
     // タイマー
@@ -73,14 +74,14 @@ public class GameController : MonoBehaviour
         if (timeData > 0 && isStart)
         {
             var rnd = Random.Range(0, (int)timeData * 3);
-            if(rnd == 0)
+            if (rnd == 0)
             {
                 AddMeteo();
             }
         }
 
-        if(timeData == 0)
-        {
+        if (timeData == 0)
+        {   
             SceneManager.LoadScene("ResultScene");
         }
     }
@@ -94,30 +95,33 @@ public class GameController : MonoBehaviour
         meteos.Add(meteoView);
     }
 
-   
+
 
     void AddBlackHole()
     {
         var mousePos = Input.mousePosition;
 
         if (blackholeCount < 1)
-        return;
+            return;
         {
             // ブラックホールを生成
             _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
-            var blackHole = _blackHole.GetComponent<FallingMeteorites>();
-            blackHole.AddMeteoPower(blackHole.transform.localPosition);
-
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
-
-            _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy);
+            _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy, HitMeteo);
             blackholeCount--;
         }
 
-        void BlackHoleDestroy()
-        {
-            blackholeCount++;
-        }
     }
+
+    void BlackHoleDestroy()
+    {
+        blackholeCount++;
+    }
+
+    private void HitMeteo(Vector3 blackHolePos, FallingMeteorites meteo)
+    {
+        meteo.AddMeteoPower(blackHolePos);
+    }
+
 
 }
