@@ -6,12 +6,28 @@ public class BlackholeView : MonoBehaviour
 {
     System.Action _callBack;
 
-    [SerializeField]
-    private FallingMeteorites _meteo;
-
-    void Start()
+    private System.Action<Vector3> _callback;
+    private void Init(System.Action<Vector3> callback)
     {
+        _callback = callback;
+    }
 
+    private void OnTriggerEnter2D(Collider2D obj)
+    {
+        if(obj.gameObject.tag == "Meteo")
+        {
+            if (_callback != null)
+                _callback(obj.transform.localPosition);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D obj)
+    {
+        if(obj.gameObject.tag == "Meteo")
+        {
+            if (_callback != null)
+                _callback(obj.transform.localPosition);
+        }
     }
 
     public void Init(System.Action callBack)

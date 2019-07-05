@@ -94,6 +94,8 @@ public class GameController : MonoBehaviour
         meteos.Add(meteoView);
     }
 
+   
+
     void AddBlackHole()
     {
         var mousePos = Input.mousePosition;
@@ -103,6 +105,9 @@ public class GameController : MonoBehaviour
         {
             // ブラックホールを生成
             _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
+            var blackHole = _blackHole.GetComponent<FallingMeteorites>();
+            blackHole.AddMeteoPower(blackHole.transform.localPosition);
+
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
 
             _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy);

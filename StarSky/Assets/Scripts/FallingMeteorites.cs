@@ -7,6 +7,10 @@ public class FallingMeteorites : MonoBehaviour
 
     Rigidbody2D meteoRigid;
 
+    private float totalPower = 100.0f;
+
+    private Vector3 blackHole;
+
     void Start()
     {
         
@@ -25,8 +29,16 @@ public class FallingMeteorites : MonoBehaviour
         meteoRigid.AddForce(moveVec * 100, ForceMode2D.Impulse);
     }
 
-    public void AddForce(Vector2 dir, float force)
+    public void AddMeteoPower(Vector3 blackHolePos)
     {
-        GetComponent<Rigidbody2D>().AddForce(dir * force, ForceMode2D.Impulse);
+        var distance = Vector3.Magnitude(blackHole - transform.localPosition);
+
+        var power = totalPower / distance;
+
+        var powerVec = blackHole - transform.localPosition;
+
+        powerVec.Normalize();
+        GetComponent<Rigidbody2D>().AddForce(powerVec * power, ForceMode2D.Impulse);
     }
+
 }
