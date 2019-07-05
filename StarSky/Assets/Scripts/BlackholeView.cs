@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BlackholeView : MonoBehaviour
 {
-
     System.Action _callBack;
+
+    [SerializeField]
+    private FallingMeteorites _meteo;
 
     void Start()
     {
@@ -24,16 +26,16 @@ public class BlackholeView : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // 繰り返し回数
-        int loopCount = 30;
+        int loopCount = 40;
 
         // 更新感覚
-        float waitsecond = 0.09f;
+        float waitsecond = 0.05f;
 
         // スケール設定
         // オフセット値
-        float offsetScale = -1.0f / loopCount;
+        float offsetScale = -1.3f / loopCount;
         // 更新値
-        float updateScale = 1;
+        float updateScale = 1.3f;
 
         for(int loop = 0; loop < loopCount; loop++)
         {

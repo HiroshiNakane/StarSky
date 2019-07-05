@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db7c515207adda47936cd0fd0f493f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackhole: {fileID: 3068593502404733064, guid: 52f07ab16babd6a4cb7b20fae5555ddd,
+    type: 3}
 --- !u!50 &669495261972734532
 Rigidbody2D:
   serializedVersion: 4

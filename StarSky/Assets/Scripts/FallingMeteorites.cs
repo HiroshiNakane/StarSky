@@ -24,4 +24,9 @@ public class FallingMeteorites : MonoBehaviour
         var moveVec = Vector3.Normalize(earthPos - transform.localPosition);
         meteoRigid.AddForce(moveVec * 100, ForceMode2D.Impulse);
     }
+
+    public void AddForce(Vector2 dir, float force)
+    {
+        GetComponent<Rigidbody2D>().AddForce(dir * force, ForceMode2D.Impulse);
+    }
 }

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject _blackHolePrefab;
 
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
 
     public int blackholeCount;
 
-    private GameObject instantiateEffect;
+    //private GameObject instantiateEffect;
 
     private GameObject _blackHole;
     
@@ -78,6 +78,11 @@ public class GameController : MonoBehaviour
                 AddMeteo();
             }
         }
+
+        if(timeData == 0)
+        {
+            SceneManager.LoadScene("ResultScene");
+        }
     }
 
     void AddMeteo()
@@ -99,6 +104,7 @@ public class GameController : MonoBehaviour
             // ブラックホールを生成
             _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
+
             _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy);
             blackholeCount--;
         }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EarthHP : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject bombEffect;
+
     void Start()
     {
         
@@ -21,6 +24,8 @@ public class EarthHP : MonoBehaviour
         {
             // 隕石を削除
             Destroy(other.gameObject);
+            Instantiate(bombEffect, other.transform.position, Quaternion.identity);
+
         }
     }
 }

@@ -17,7 +17,7 @@ public class Result : MonoBehaviour
 
     public void OnclickReturnTitle()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void OnclickRetry()
