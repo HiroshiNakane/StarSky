@@ -45,19 +45,19 @@ public class GameController : MonoBehaviour
     void Start()
     {
         timeData = 30.0f;
-        timer.text = "0";
+        timer.text = "30";
         blackholeCount = 3;
     }
 
     void Update()
     {
-        if (timeData > 0 && isStart)
+        if (timeData > -1 && isStart)
         {
             timeData -= Time.deltaTime;
-            if (timeData < 0)
-                timeData = 0;
+            if (timeData < -1)
+                timeData = -1;
 
-            timer.text = ((int)timeData).ToString();
+            timer.text = ((int)timeData + 1).ToString();
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
             isStart = true;
         }
 
-        if (timeData > 0 && isStart)
+        if (timeData > -1 && isStart)
         {
             var rnd = Random.Range(0, (int)timeData * 3);
             if (rnd == 0)
@@ -80,8 +80,8 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (timeData == 0)
-        {   
+        if (timer.text == "0")
+        {
             SceneManager.LoadScene("ResultScene");
         }
     }

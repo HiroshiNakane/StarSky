@@ -7,12 +7,28 @@ public class BlackholeView : MonoBehaviour
     private System.Action _callback;
     private System.Action<Vector3, FallingMeteorites> _callbackMeteo;
 
+    [SerializeField]
+    private List<Transform> _blackHoleLists = new List<Transform>();
+
+    private float _scale = 30.0f;
+
+    void Start()
+    {
+        SetScale(_scale);    
+    }
+
     public void Init(System.Action callback, System.Action<Vector3, FallingMeteorites> callbacMeteo)
     {
         _callback = callback;
         _callbackMeteo = callbacMeteo;
 
         StartCoroutine(BlackholeMakeSmaller(gameObject));
+    }
+
+    private void SetScale(float scale)
+    {
+        _scale = scale;
+        _blackHoleLists.ForEach(x => x.localScale = new Vector3(_scale, _scale, _scale));
     }
 
     private void OnTriggerEnter2D(Collider2D obj)

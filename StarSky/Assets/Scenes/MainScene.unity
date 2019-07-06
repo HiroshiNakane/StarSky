@@ -121,6 +121,98 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &191080906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 191080907}
+  - component: {fileID: 191080910}
+  - component: {fileID: 191080909}
+  - component: {fileID: 191080908}
+  m_Layer: 5
+  m_Name: StartText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &191080907
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191080906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1757949963}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &191080908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191080906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5de175a75ae9b45ac1ed004cf452e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &191080909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191080906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 70
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Click To Start\uFF01"
+--- !u!222 &191080910
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191080906}
+  m_CullTransparentMesh: 0
 --- !u!1 &401150276
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e0ef646ec61b54b8b1d7715c92b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blackHolePrefab: {fileID: 3068593502404733064, guid: 52f07ab16babd6a4cb7b20fae5555ddd,
+  _blackHolePrefab: {fileID: 2616166234565171195, guid: 8db869bd00f7ba84ea93bbda828f3428,
     type: 3}
   blackHoleEffect: {fileID: 2616166234565171195, guid: 8db869bd00f7ba84ea93bbda828f3428,
     type: 3}
@@ -966,8 +1058,6 @@ MonoBehaviour:
   meteoPrefab: {fileID: 6927306829523481113, guid: 25319dc1c51ff5d429fffb82707c030b,
     type: 3}
   earth: {fileID: 1007056990}
-  blackHole: {fileID: 8841480477861393775, guid: 52f07ab16babd6a4cb7b20fae5555ddd,
-    type: 3}
   timer: {fileID: 838759234}
   blackholeCount: 0
 --- !u!4 &1712412831
@@ -1045,7 +1135,7 @@ Transform:
   m_GameObject: {fileID: 1733299662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 0}
   m_Children: []
   m_Father: {fileID: 1757949963}
   m_RootOrder: 4
@@ -1146,6 +1236,7 @@ RectTransform:
   - {fileID: 1001828918}
   - {fileID: 1733299663}
   - {fileID: 488861793}
+  - {fileID: 191080907}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
