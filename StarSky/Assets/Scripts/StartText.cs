@@ -35,8 +35,4 @@ public class StartText : MonoBehaviour
         return color;
     }
 
-    void destroyObject()
-    {
-
-    }
 }
