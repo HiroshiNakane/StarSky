@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
     private Text timer;
 
     public int blackholeCount;
-    private float totalPower = 100.0f;
+    //private float totalPower = 100.0f;
 
     //private GameObject instantiateEffect;
 

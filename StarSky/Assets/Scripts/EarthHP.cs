@@ -13,15 +13,18 @@ public class EarthHP : MonoBehaviour
 
     void Start()
     {
-        earthHP = 30;
+        earthHP = 20;
     }
     
     void Update()
     {
         if(earthHP == 0)
-        {
-            SceneManager.LoadScene("ResultScene");
-        }
+        Invoke("SceneMove", 1.0f);
+    }
+
+    void SceneMove()
+    {
+       SceneManager.LoadScene("ResultScene");   
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -35,9 +38,14 @@ public class EarthHP : MonoBehaviour
 
             earthHP -= 1;
 
-            //gameObject.GetComponent<Image>().color = new Color(255.0f, 0.0f, 0.0f);
+            if (earthHP < 1)
+                gameObject.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f);
 
-            
+            else if (earthHP < 11)
+                gameObject.GetComponent<Image>().color = new Color(1.0f, 0.3f, 0.3f);
+
+            //else if (earthHP < 21)
+              //  gameObject.GetComponent<Image>().color = new Color(1.0f, 0.7f, 0.7f);
         }
     }
 }
