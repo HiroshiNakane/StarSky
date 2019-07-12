@@ -9,11 +9,11 @@ public class EarthHP : MonoBehaviour
     [SerializeField]
     private GameObject bombEffect;
 
-    int earthHP;
+    public int earthHP;
 
     void Start()
     {
-        earthHP = 20;
+        earthHP = 25;
     }
     
     void Update()
@@ -44,8 +44,10 @@ public class EarthHP : MonoBehaviour
             else if (earthHP < 11)
                 gameObject.GetComponent<Image>().color = new Color(1.0f, 0.3f, 0.3f);
 
-            //else if (earthHP < 21)
-              //  gameObject.GetComponent<Image>().color = new Color(1.0f, 0.7f, 0.7f);
+            else if (earthHP < 21)
+                gameObject.GetComponent<Image>().color = new Color(1.0f, 0.7f, 0.7f);
+
+            Debug.Log(earthHP);
         }
     }
 }

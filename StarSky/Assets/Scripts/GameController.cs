@@ -27,6 +27,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text timer;
 
+    [SerializeField]
+    private GameObject[] BHCounts;
+
     public int blackholeCount;
     //private float totalPower = 100.0f;
 
@@ -85,6 +88,8 @@ public class GameController : MonoBehaviour
             new WaitForSeconds(1.0f);
             SceneManager.LoadScene("ResultScene");
         }
+
+
     }
 
     void AddMeteo()
@@ -110,6 +115,7 @@ public class GameController : MonoBehaviour
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
             _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy, HitMeteo);
             blackholeCount--;
+            
         }
 
     }
@@ -117,6 +123,17 @@ public class GameController : MonoBehaviour
     void BlackHoleDestroy()
     {
         blackholeCount++;
+    }
+
+    void UpdateBHCounts()
+    {
+        for(int i = 3; 0 <= BHCounts.Length; i--)
+        {
+            if (blackholeCount < i)
+                BHCounts[i].SetActive(false);
+            else
+                BHCounts[i].SetActive(true);
+        }
     }
 
     private void HitMeteo(Vector3 blackHolePos, FallingMeteorites meteo)
