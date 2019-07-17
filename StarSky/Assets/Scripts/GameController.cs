@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject[] BHCounts;
 
-    public int blackholeCount;
+    int blackholeCount;
     //private float totalPower = 100.0f;
 
     //private GameObject instantiateEffect;
@@ -65,6 +65,7 @@ public class GameController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 AddBlackHole();
+
             }
 
         }
@@ -115,7 +116,7 @@ public class GameController : MonoBehaviour
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
             _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy, HitMeteo);
             blackholeCount--;
-            
+            DecreaseBHCounts();
         }
 
     }
@@ -123,16 +124,28 @@ public class GameController : MonoBehaviour
     void BlackHoleDestroy()
     {
         blackholeCount++;
+        IncreaseBHCounts();
     }
 
-    void UpdateBHCounts()
+    void DecreaseBHCounts()
     {
-        for(int i = 3; 0 <= BHCounts.Length; i--)
+        for(int i = 0; i <= BHCounts.Length; i++)
         {
-            if (blackholeCount < i)
+            if (blackholeCount == i)
+                //BHCounts[i].SetActive(true);
+            //else
                 BHCounts[i].SetActive(false);
-            else
+        }
+    }
+
+    void IncreaseBHCounts()
+    {
+        for (int i = 0; i <= BHCounts.Length; i++)
+        {
+            if (blackholeCount > i)
                 BHCounts[i].SetActive(true);
+            //else
+                //BHCounts[i].SetActive(false);
         }
     }
 
