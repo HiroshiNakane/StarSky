@@ -8,18 +8,15 @@ public class Title : MonoBehaviour
 {
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+            SceneManager.LoadScene("MainScene");
     }
 
-    public void OnclickStart()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
 
     public void OnclickTutorial()
     {

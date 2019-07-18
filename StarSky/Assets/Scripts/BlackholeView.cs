@@ -55,7 +55,7 @@ public class BlackholeView : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // 繰り返し回数
-        int loopCount = 15;
+        int loopCount = 25;
 
         // 更新感覚
         float waitsecond = 0.05f;
