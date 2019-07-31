@@ -17,10 +17,10 @@ public class BlackholeView : MonoBehaviour
         SetScale(_scale);    
     }
 
-    public void Init(System.Action callback, System.Action<Vector3, FallingMeteorites> callbacMeteo)
+    public void Init(System.Action callback, System.Action<Vector3, FallingMeteorites> callbackMeteo)
     {
         _callback = callback;
-        _callbackMeteo = callbacMeteo;
+        _callbackMeteo = callbackMeteo;
 
         StartCoroutine(BlackholeMakeSmaller(gameObject));
     }

@@ -34,7 +34,7 @@ public class EarthHP : MonoBehaviour
         {
             // 隕石を削除
             Destroy(other.gameObject);
-            //Instantiate(bombEffect, other.transform.position, Quaternion.identity);
+            Instantiate(bombEffect, other.transform.position, Quaternion.identity);
 
             earthHP -= 1;
 
