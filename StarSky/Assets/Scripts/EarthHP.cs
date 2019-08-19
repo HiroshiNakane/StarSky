@@ -9,6 +9,9 @@ public class EarthHP : MonoBehaviour
     [SerializeField]
     private GameObject bombEffect;
 
+    [SerializeField]
+    private GameObject parent;
+
     public int earthHP;
 
     void Start()
@@ -24,7 +27,7 @@ public class EarthHP : MonoBehaviour
 
     void SceneMove()
     {
-       SceneManager.LoadScene("ResultScene");   
+       SceneManager.LoadScene("GameOverScene");   
     }
 
     void OnCollisionEnter2D(Collision2D other)

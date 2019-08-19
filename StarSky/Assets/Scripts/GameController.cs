@@ -10,9 +10,6 @@ public class GameController : MonoBehaviour
     private GameObject _blackHolePrefab;
 
     [SerializeField]
-    private GameObject blackHoleEffect;
-
-    [SerializeField]
     private GameObject parent;
 
     [SerializeField]
@@ -31,9 +28,6 @@ public class GameController : MonoBehaviour
     private GameObject[] BHCounts;
 
     int blackholeCount;
-    //private float totalPower = 100.0f;
-
-    //private GameObject instantiateEffect;
 
     private GameObject _blackHole;
 
@@ -87,7 +81,7 @@ public class GameController : MonoBehaviour
         if (timeData == 0)
         {
             new WaitForSeconds(1.0f);
-            SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadScene("GameClearScene");
         }
 
 
@@ -132,8 +126,6 @@ public class GameController : MonoBehaviour
         for(int i = 0; i <= BHCounts.Length; i++)
         {
             if (blackholeCount == i)
-                //BHCounts[i].SetActive(true);
-            //else
                 BHCounts[i].SetActive(false);
         }
     }
@@ -144,8 +136,6 @@ public class GameController : MonoBehaviour
         {
             if (blackholeCount > i)
                 BHCounts[i].SetActive(true);
-            //else
-                //BHCounts[i].SetActive(false);
         }
     }
 
