@@ -38,11 +38,23 @@ public class BlackholeView : MonoBehaviour
             if (_callbackMeteo != null)
                 _callbackMeteo(transform.GetComponent<RectTransform>().localPosition, obj.GetComponent<FallingMeteorites>());
         }
+
+        if(obj.gameObject.tag == "BreakingMeteo")
+        {
+            if (_callbackMeteo != null)
+                _callbackMeteo(transform.GetComponent<RectTransform>().localPosition, obj.GetComponent<FallingMeteorites>());
+        }
     }
 
     private void OnTriggerStay2D(Collider2D obj)
     {
         if(obj.gameObject.tag == "Meteo")
+        {
+            if (_callbackMeteo != null)
+                _callbackMeteo(transform.GetComponent<RectTransform>().localPosition, obj.GetComponent<FallingMeteorites>());
+        }
+
+        if (obj.gameObject.tag == "BreakingMeteo")
         {
             if (_callbackMeteo != null)
                 _callbackMeteo(transform.GetComponent<RectTransform>().localPosition, obj.GetComponent<FallingMeteorites>());

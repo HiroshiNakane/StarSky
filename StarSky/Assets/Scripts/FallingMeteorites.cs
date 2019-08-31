@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FallingMeteorites : MonoBehaviour
 {
-
     Rigidbody2D meteoRigid;
 
     private float totalPower = 1000.0f;
@@ -17,8 +16,25 @@ public class FallingMeteorites : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "BlackHole")
+        {
+            this.tag = "BreakingMeteo";
+        }
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "BreakingMeteo")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 
     public void Init(Vector3 earthPos)
     {

@@ -52,5 +52,28 @@ public class EarthHP : MonoBehaviour
 
             Debug.Log(earthHP);
         }
+
+        // 当たったオブジェクトにBreakingMeteoタグがついていたら
+        if (other.gameObject.CompareTag("BreakingMeteo"))
+        {
+            // 隕石を削除
+            Destroy(other.gameObject);
+            Instantiate(bombEffect, other.transform.position, Quaternion.identity);
+
+            earthHP -= 1;
+
+            if (earthHP < 1)
+                gameObject.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f);
+
+            else if (earthHP < 11)
+                gameObject.GetComponent<Image>().color = new Color(1.0f, 0.3f, 0.3f);
+
+            else if (earthHP < 21)
+                gameObject.GetComponent<Image>().color = new Color(1.0f, 0.7f, 0.7f);
+
+            Debug.Log(earthHP);
+        }
+
     }
+
 }
