@@ -24,9 +24,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text timer;
 
+    // MeteoHitPrefabにアタッチできないのでGameManagerでアタッチする用
+    public Text meteoCount;
+
+    // ブラックホールを出せる回数UI用カウント
     [SerializeField]
     private GameObject[] BHCounts;
 
+    // 一度に出せるブラックホールの数
     int blackholeCount;
 
     private GameObject _blackHole;
@@ -59,7 +64,6 @@ public class GameController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 AddBlackHole();
-
             }
 
         }
@@ -83,8 +87,6 @@ public class GameController : MonoBehaviour
             new WaitForSeconds(1.0f);
             SceneManager.LoadScene("GameClearScene");
         }
-
-
     }
 
     void AddMeteo()
@@ -95,9 +97,7 @@ public class GameController : MonoBehaviour
         meteoView.Init(earth.localPosition);
         meteos.Add(meteoView);
     }
-
-
-
+    
     void AddBlackHole()
     {
         var mousePos = Input.mousePosition;
@@ -109,6 +109,8 @@ public class GameController : MonoBehaviour
             _blackHole = Instantiate(_blackHolePrefab, blackholeParent.transform);
             _blackHole.transform.localPosition = Camera.main.ScreenToWorldPoint(mousePos);
             _blackHole.GetComponent<BlackholeView>().Init(BlackHoleDestroy, HitMeteo);
+
+            // ブラックホール出したらカウント減少&その分のUI非表示
             blackholeCount--;
             DecreaseBHCounts();
         }
@@ -117,6 +119,7 @@ public class GameController : MonoBehaviour
 
     void BlackHoleDestroy()
     {
+        // ブラックホールが消えたらカウント増加とUI表示
         blackholeCount++;
         IncreaseBHCounts();
     }

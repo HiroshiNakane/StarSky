@@ -25,6 +25,7 @@ public class BlackholeView : MonoBehaviour
         StartCoroutine(BlackholeMakeSmaller(gameObject));
     }
 
+    // エフェクトの大きさ変化用
     private void SetScale(float scale)
     {
         _scale = scale;
