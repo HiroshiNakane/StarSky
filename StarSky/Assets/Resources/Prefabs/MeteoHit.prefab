@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8919129486812664586}
   - component: {fileID: 742065988730008870}
   - component: {fileID: 669495261972734532}
+  - component: {fileID: -8456970635221860686}
   m_Layer: 5
   m_Name: MeteoHit
   m_TagString: Meteo
@@ -105,7 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db7c515207adda47936cd0fd0f493f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BrokeMeteo: {fileID: 0}
+  brokeMeteo: {fileID: 0}
+  meteoExplosion: {fileID: 3943581463266801901, guid: bdd5eb8c6c49e30469e44b4d07a9fbd4,
+    type: 3}
+  explosionSE: {fileID: 8300000, guid: 63e69719dc1dc6e43b950f076b1d0b81, type: 3}
 --- !u!50 &669495261972734532
 Rigidbody2D:
   serializedVersion: 4
@@ -127,3 +131,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!81 &-8456970635221860686
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927306829523481113}
+  m_Enabled: 0

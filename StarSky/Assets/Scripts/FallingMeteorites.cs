@@ -18,6 +18,16 @@ public class FallingMeteorites : MonoBehaviour
     // 壊した隕石のカウント
     int BrokeMeteoCount;
 
+    [SerializeField]
+    private GameObject meteoExplosion;
+
+    private float _scale = 20.0f;
+
+    [SerializeField]
+    private AudioClip explosionSE;
+
+    AudioSource audioSource;
+
     void Start()
     {
         BrokeMeteoCount = 0;
@@ -26,6 +36,8 @@ public class FallingMeteorites : MonoBehaviour
         script = gameManager.GetComponent<GameController>();
 
         brokeMeteo = script.meteoCount;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -50,6 +62,8 @@ public class FallingMeteorites : MonoBehaviour
             BrokeMeteoCount += 1;
             Debug.Log(BrokeMeteoCount);
             brokeMeteo.text = ((int)BrokeMeteoCount).ToString();
+
+            audioSource.PlayOneShot(explosionSE);
         }
     }
 
