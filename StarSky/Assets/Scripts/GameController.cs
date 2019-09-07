@@ -73,9 +73,10 @@ public class GameController : MonoBehaviour
             isStart = true;
         }
 
+        // 秒数が少なくなるほど、隕石の降らす頻度を増やす
         if (timeData > 0 && isStart)
         {
-            var rnd = Random.Range(0, (int)timeData * 3);
+            var rnd = Random.Range(0, (int)timeData * 2);
             if (rnd == 0)
             {
                 AddMeteo();
@@ -84,7 +85,6 @@ public class GameController : MonoBehaviour
 
         if (timeData == 0)
         {
-            new WaitForSeconds(1.0f);
             SceneManager.LoadScene("GameClearScene");
         }
     }

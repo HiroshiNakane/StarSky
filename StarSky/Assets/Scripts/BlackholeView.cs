@@ -10,7 +10,7 @@ public class BlackholeView : MonoBehaviour
     [SerializeField]
     private List<Transform> _blackHoleLists = new List<Transform>();
 
-    private float _scale = 30.0f;
+    private float _scale = 20.0f;
 
     void Start()
     {

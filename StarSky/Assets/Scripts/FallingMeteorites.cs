@@ -21,8 +21,6 @@ public class FallingMeteorites : MonoBehaviour
     [SerializeField]
     private GameObject meteoExplosion;
 
-    private float _scale = 20.0f;
-
     [SerializeField]
     private AudioClip explosionSE;
 
@@ -59,11 +57,12 @@ public class FallingMeteorites : MonoBehaviour
         if (collision.gameObject.tag == "BreakingMeteo")
         {
             Destroy(this.gameObject);
-            BrokeMeteoCount += 1;
+            Instantiate(meteoExplosion, gameObject.transform.position, Quaternion.identity);
+            //audioSource.PlayOneShot(explosionSE);
+            BrokeMeteoCount++;
             Debug.Log(BrokeMeteoCount);
             brokeMeteo.text = ((int)BrokeMeteoCount).ToString();
 
-            audioSource.PlayOneShot(explosionSE);
         }
     }
 
